@@ -1,4 +1,4 @@
-import leetcodeEasy.Easy;
+import leetcodeEasyJava.Easy;
 
 import java.util.Arrays;
 
