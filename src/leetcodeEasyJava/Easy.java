@@ -66,6 +66,25 @@ public class Easy {
             }
         }
         return index;
+    }
+     /*
+        Problem set: Given an integer x, return true if x is a palindrome, and false otherwise.
+        Solution: The solution for this is to take the number
+        change it to string, change the number order from start to end
+        Check if the converted text is equal to the flipped test
+        Need to revise it or do it in C
+    */
+    public  boolean isPalindrome(int x) {
+        String convertX = String.valueOf(x);
+        int length = convertX.length();
+        String flipTest = "";
+        for(int i = length; i > 0; i--) {
+            flipTest += convertX.charAt(i - 1);
+        }
+        if(flipTest.equals(convertX)) {
+            return true;
+        }
+        return false;
 
     }
 }
