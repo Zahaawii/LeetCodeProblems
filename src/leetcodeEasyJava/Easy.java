@@ -87,4 +87,18 @@ public class Easy {
         return false;
 
     }
+
+
+    public static String longestCommonPrefix(String[] strs) {
+        // Currently wokring on this one - not done.
+        // TODO: Fix the code to check for 0 strings etc
+        String newStr = "";
+        for(int i = 0; i < strs.length - 1; i++) {
+            if(strs[i].charAt(i) == strs[i+1].charAt(i)) {
+                newStr += strs[i].charAt(i);
+            }
+        }
+
+        return newStr;
+    }
 }
