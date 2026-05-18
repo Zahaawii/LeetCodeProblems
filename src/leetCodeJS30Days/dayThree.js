@@ -35,3 +35,32 @@ var compose = function(functions) {
  * const fn = compose([x => x + 1, x => 2 * x])
  * fn(4) // 9
  */
+
+
+/**
+ * @param {...(null|boolean|number|string|Array|Object)} args
+ * @return {number}
+ *
+ * Problem set:
+ * Write a function argumentsLength that returns the count of arguments passed to it.
+ *
+ * Notes:
+ * return args.length; this apparently is slower than the code below. Don't really know why
+ *
+ * Solution:
+ * Take the length of args and return it
+ *
+ */
+var argumentsLength = function(...args) {
+    let length = args.length;
+    return length;
+    /*
+    Or simply
+
+    Apparently above method is faster?
+    */
+};
+
+/**
+ * argumentsLength(1, 2, 3); // 3
+ */
