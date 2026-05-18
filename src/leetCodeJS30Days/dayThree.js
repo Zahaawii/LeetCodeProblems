@@ -43,22 +43,13 @@ var compose = function(functions) {
  *
  * Problem set:
  * Write a function argumentsLength that returns the count of arguments passed to it.
- *
- * Notes:
- * return args.length; this apparently is slower than the code below. Don't really know why
- *
+ 
  * Solution:
  * Take the length of args and return it
  *
  */
 var argumentsLength = function(...args) {
-    let length = args.length;
-    return length;
-    /*
-    Or simply
-
-    Apparently above method is faster?
-    */
+    return args.length;
 };
 
 /**
