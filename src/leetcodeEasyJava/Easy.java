@@ -131,4 +131,27 @@ public class Easy {
         int lenght = test.length;
         return test[lenght - 1].length();
     }
+
+    public static boolean isPalindrome(String s) {
+        /**
+         * Very bad code with the regex, need to fix it to only take the alphabetic value or maybe overall change the code
+         * the code runs on 160ms which is baaaad
+         */
+        String regex = "[ !\"#$%&'()*+,\\-./:;<=>?@\\[\\\\\\]^_`{|}~]";
+        String [] test = s.split(regex);
+        String newStr = "";
+        for (String str : test) {
+            newStr += str.toLowerCase();
+        }
+
+        int length = newStr.length();
+        String flipTest = "";
+        for(int i = length; i > 0; i--) {
+            flipTest += newStr.charAt(i - 1);
+        }
+
+        if(flipTest.equals(newStr)) return true;
+
+        return false;
+    }
 }

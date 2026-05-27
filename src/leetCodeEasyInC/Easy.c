@@ -13,5 +13,5 @@ int removeDuplicates(int* nums, int numsSize) {
 
 
 int lengthOfLastWord(char* s) {
-    
+
 }
