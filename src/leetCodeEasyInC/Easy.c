@@ -9,5 +9,9 @@ int removeDuplicates(int* nums, int numsSize) {
                     }
                 }
             return index;
+}
 
-        }
+
+int lengthOfLastWord(char* s) {
+    
+}

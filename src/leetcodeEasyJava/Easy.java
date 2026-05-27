@@ -104,17 +104,31 @@ public class Easy {
         }
         return newStr;
     }
+    /*
+        Problem set: Given a string s consisting of words and spaces, return the length of the last word in the string.
+        Solution: Strip the string from whitespaces so if there is spaces in the beginning or end, it gets removed
+        Split the words into array if there is a space in between
+        Take the length of the array and index into the last and return the length of that word
+
+        TODO: Do it in C
+
+        Another solution without strip
+        String newStr = s.strip();
+        int length = newStr.length();
+        int spacesCount = 0;
+
+        for (int i = 0; i < length; i++) {
+            if (newStr.charAt(i) == ' ') {
+                spacesCount = i + 1;
+            }
+           }
+        return newStr.substring(spacesCount).length();
+     */
 
     public static int lengthOfLastWord(String s) {
-            String newStr = s.strip();
-            int length = newStr.length();
-            int spacesCount = 0;
-
-            for (int i = 0; i < length; i++) {
-                if (newStr.charAt(i) == ' ') {
-                    spacesCount = i + 1;
-                }
-            }
-            return newStr.substring(spacesCount).length();
-        }
+        String newStr = s.strip();
+        String [] test = newStr.split(" ");
+        int lenght = test.length;
+        return test[lenght - 1].length();
+    }
 }
