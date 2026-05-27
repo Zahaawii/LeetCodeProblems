@@ -92,13 +92,29 @@ public class Easy {
     public static String longestCommonPrefix(String[] strs) {
         // Currently wokring on this one - not done.
         // TODO: Fix the code to check for 0 strings etc
-        String newStr = "";
-        for(int i = 0; i < strs.length - 1; i++) {
-            if(strs[i].charAt(i) == strs[i+1].charAt(i)) {
-                newStr += strs[i].charAt(i);
-            }
+        if(strs.length == 1) {
+            return strs[0];
         }
 
+        String newStr = "";
+        for(int i = 1; i < strs.length; i++) {
+            if(!strs[0].isEmpty() && strs[0].substring(0, i).equals(strs[i].substring(0, i))) {
+                newStr = strs[0].substring(0, i);
+            }
+        }
         return newStr;
     }
+
+    public static int lengthOfLastWord(String s) {
+            String newStr = s.strip();
+            int length = newStr.length();
+            int spacesCount = 0;
+
+            for (int i = 0; i < length; i++) {
+                if (newStr.charAt(i) == ' ') {
+                    spacesCount = i + 1;
+                }
+            }
+            return newStr.substring(spacesCount).length();
+        }
 }

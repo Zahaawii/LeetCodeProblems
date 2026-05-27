@@ -43,7 +43,7 @@ var compose = function(functions) {
  *
  * Problem set:
  * Write a function argumentsLength that returns the count of arguments passed to it.
- 
+
  * Solution:
  * Take the length of args and return it
  *
