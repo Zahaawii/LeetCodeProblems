@@ -133,7 +133,7 @@ public class Easy {
     }
 
     public static boolean isPalindrome(String s) {
-        /**
+        /*
          * Very bad code with the regex, need to fix it to only take the alphabetic value or maybe overall change the code
          * the code runs on 160ms which is baaaad
          */
@@ -153,5 +153,44 @@ public class Easy {
         if(flipTest.equals(newStr)) return true;
 
         return false;
+    }
+
+    /*
+            Problem set:
+            Given two strings needle and haystack,
+            return the index of the first occurrence of needle in haystack,
+            or -1 if needle is not part of haystack.
+
+
+            Notes: Apparently this work, but i dont know if it is seen as "correct" code.
+            However, it beats 100% and has a 0ms, so something might as well be very good
+            Though I had another solution:
+
+               for(int i = 0, j = needle.length(); j<=haystack.length(); i++,j++){
+                    if(haystack.substring(i,j).equals(needle)){
+                        return i;
+                    }
+                }
+                return -1;
+
+                Solution:
+                Return the indexOf where haystack and needle meets
+     */
+
+    public static int strStr(String haystack, String needle) {
+        return haystack.indexOf(needle);
+    }
+
+    // TODO: Still working on this, right now it passes test but not the submit
+    // Issue is that if s is smaller than t or vice versa :( 
+    public static boolean isAnagram(String s, String t) {
+        int length = s.length();
+        boolean test = false;
+
+        for(int i = 0; i < length; i++) {
+            System.out.println(i + ": " + s.charAt(i));
+            test = s.charAt(i) == t.charAt(i);
+        }
+        return test;
     }
 }
