@@ -193,4 +193,31 @@ public class Easy {
         }
         return test;
     }
+
+    /*
+        Problem set: Write a function that reverses a string. The input string is given as an array of characters s.
+                     You must do this by modifying the input array in-place with O(1) extra memory.
+
+        Solution:
+
+
+
+     */
+    public void reverseString(char[] s) {
+        char [] newS = new char [s.length];
+        int test = 0;
+        for(int i = s.length; i > 0; i--) {
+            newS[test] = s[i + 1];
+            test++;
+        }
+        System.arraycopy(newS, 0, s, 0, s.length);
+
+        /*
+        Actually used this:
+        for(int i = 0; i < s.length; i++) {
+            s[i] = newS[i];
+        }
+        But System.arrayCopy is faster and gives me 0ms
+         */
+    }
 }
