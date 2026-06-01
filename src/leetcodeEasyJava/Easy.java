@@ -199,12 +199,37 @@ public class Easy {
                      You must do this by modifying the input array in-place with O(1) extra memory.
 
         Solution:
+        We instantiate two variables: one that starts from the beginning and one from the end
+        Then we make a continuous loop until the conditional is no longer true.
 
+        We have to create a temp variable that stores the value of the first character (then the second..., until we hit the same number as right side)
+        Since we now has stored the temporary value, we can take the right side and place it in the beginning.
+        Afterwards we take temp value and place it in the end.
+        Lastly we increment the left side and decrement the right side for it to hit the same number
+        Then we stop.
 
 
      */
     public void reverseString(char[] s) {
+
+        int leftSide = 0;
+        int rightSide = s.length - 1;
+
+        while(leftSide < rightSide) {
+            char temp = s[leftSide];
+            s[leftSide] = s[rightSide];
+            s[rightSide] = temp;
+            leftSide++;
+            rightSide--;
+        }
+
+
+        /*
+
+        Sooo apparently I need to fix the array without creating a new one, ups.
+        trying again
         char [] newS = new char [s.length];
+
         int test = 0;
         for(int i = s.length; i > 0; i--) {
             newS[test] = s[i + 1];
@@ -212,8 +237,7 @@ public class Easy {
         }
         System.arraycopy(newS, 0, s, 0, s.length);
 
-        /*
-        Actually used this:
+          Actually used this:
         for(int i = 0; i < s.length; i++) {
             s[i] = newS[i];
         }

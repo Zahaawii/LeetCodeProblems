@@ -15,3 +15,16 @@ int removeDuplicates(int* nums, int numsSize) {
 int lengthOfLastWord(char* s) {
 
 }
+
+void reverseString(char* s, int sSize) {
+        int leftSide = 0;
+        int rightSide = sSize - 1;
+        
+        while(leftSide < rightSide) {
+            char temp = s[leftSide];
+            s[leftSide] = s[rightSide];
+            s[rightSide] = temp;
+            leftSide++;
+            rightSide--;
+        }
+}
