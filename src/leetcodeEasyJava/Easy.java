@@ -1,5 +1,6 @@
 package leetcodeEasyJava;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 /*
@@ -244,4 +245,41 @@ public class Easy {
         But System.arrayCopy is faster and gives me 0ms
          */
     }
+
+    public static String reverseWords(String s) {
+        String newStr = "";
+        String [] test = s.split(" ");
+        System.out.println(Arrays.toString(test));
+        int length = test.length;
+        for (int i = 0; i < length; i++) {
+            for(int j = length; j > 0; j--) {
+                newStr += test[i].charAt(j);
+            }
+        }
+
+        return newStr;
+    }
+
+    /*
+        Test passes but submit doesnt.
+
+        TODO: Have to fix the code. Solution not done
+     */
+    public int numJewelsInStones(String jewels, String stones) {
+        int count = 0;
+        int i = 0;
+
+        while(jewels.indexOf(stones.charAt(i)) != -1) {
+            count++;
+            i++;
+        }
+        return count;
+    }
+
+
+
+
+
+
+
 }
