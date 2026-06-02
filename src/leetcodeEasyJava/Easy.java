@@ -261,19 +261,28 @@ public class Easy {
     }
 
     /*
-        Test passes but submit doesnt.
+        Problem set:
+        You're given strings jewels representing the types of stones that are jewels, and stones representing the stones you have.
+        Each character in stones is a type of stone you have.
+        You want to know how many of the stones you have are also jewels.
 
-        TODO: Have to fix the code. Solution not done
+        Solution:
+        I solved the problem by iterating in a nested for loop in order to take each character of the jewels and compare with
+        every character of the stones.
+        So for each character in jewels we iterate through all characters of stones to see which is a match.
+
      */
     public int numJewelsInStones(String jewels, String stones) {
         int count = 0;
-        int i = 0;
-
-        while(jewels.indexOf(stones.charAt(i)) != -1) {
-            count++;
-            i++;
+        for (int i = 0, length = jewels.length(), stoneLength = stones.length(); i < length; i++) {
+            for (int j = 0; j < stoneLength; j++) {
+                if (jewels.charAt(i) == stones.charAt(j)) {
+                    count++;
+                }
+            }
         }
         return count;
+    }
     }
 
 
