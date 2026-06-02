@@ -5,3 +5,9 @@ GROUP BY email
 HAVING COUNT(email) > 1
 
 --
+
+-- Combine Two Tables --
+SELECT firstName, lastName, city, state
+FROM person
+left JOIN address
+on person.personId = address.personId;
