@@ -284,4 +284,19 @@ public class Easy {
         return count;
     }
 
+    /*
+        Problem set:
+        Given a valid (IPv4) IP address, return a defanged version of that IP address.
+        A defanged IP address replaces every period "." with "[.]".
+
+        Solution:
+        Use the built in replace all function to replace all the '.' to [.]
+
+        To be honest, I dont really like this idea since it uses a built in,
+        so maybe I will do it in C or another way in Java to modify it manually
+     */
+    public static String defangIPaddr(String address) {
+        return address.replaceAll("\\.", "[.]");
+    }
+
 }
