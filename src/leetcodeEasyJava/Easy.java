@@ -297,7 +297,33 @@ public class Easy {
      */
     public static String defangIPaddr(String address) {
         // return address.replace(".", "[.]");
-        return address.replaceAll("\\.", "[.]");
+        // return address.replaceAll("\\.", "[.]");
+       /*
+       This one is 0 ms
+        StringBuilder newStr = new StringBuilder();
+         for (int i = 0; i < address.length(); i++) {
+            if(address.charAt(i) == '.') {
+                newStr.append("[.]");
+            } else {
+                newStr.append(address.charAt(i));
+
+            }
+        }
+        return newStr.toString();
+        */
+
+        // this one is 3 ms but does not use built-in functions
+        String newStr = "";
+        for (int i = 0; i < address.length(); i++) {
+            if(address.charAt(i) == '.') {
+                newStr += "[.]";
+            } else {
+                newStr += (address.charAt(i));
+
+            }
+        }
+        return newStr;
+
     }
 
 }
