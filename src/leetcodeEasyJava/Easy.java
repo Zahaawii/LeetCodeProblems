@@ -1,7 +1,6 @@
 package leetcodeEasyJava;
 
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.*;
 
 /*
 Two sum problem:
@@ -183,7 +182,7 @@ public class Easy {
     }
 
     // TODO: Still working on this, right now it passes test but not the submit
-    // Issue is that if s is smaller than t or vice versa :( 
+    // Issue is that if s is smaller than t or vice versa :(
     public static boolean isAnagram(String s, String t) {
         int length = s.length();
         boolean test = false;
@@ -326,4 +325,57 @@ public class Easy {
 
     }
 
+    /*
+
+       Problem set: Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it.
+       That is, for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].
+
+       With built-in functions:
+       Map<Integer, Integer> newMap = new HashMap<>();
+        int l = nums.length;
+        int [] newNums = nums.clone();
+
+        Arrays.sort(newNums);
+        for(int i = 0; i < l; i++) {
+            newMap.putIfAbsent(newNums[i], i);
+        }
+
+        for(int i = 0; i < l; i++) {
+            newNums[i] = newMap.get(nums[i]);
+        }
+        return newNums;
+
+        Code below is without built-in functions
+     */
+
+    public static int[] smallerNumbersThanCurrent(int[] nums) {
+        Map<Integer, Integer> newMap = new HashMap<>();
+        int l = nums.length;
+        int [] newNums = new int[l];
+
+
+        for(int i = 0; i < l; i++) {
+            newNums[i] = nums[i];
+        }
+
+        for(int i = 0; i < l; i++) {
+            int temp = 0;
+            for(int j = i + 1; j < l; j++) {
+                if(newNums[i] > newNums[j]) {
+                    temp = newNums[i];
+                    newNums[i] = newNums[j];
+                    newNums[j] = temp;
+                }
+            }
+        }
+
+        for(int i = 0; i < l; i++) {
+            newMap.putIfAbsent(newNums[i], i);
+        }
+
+        for(int i = 0; i < l; i++) {
+            newNums[i] = newMap.get(nums[i]);
+        }
+        return newNums;
+    }
 }
