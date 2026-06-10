@@ -382,9 +382,18 @@ public class Easy {
     /*
     Problem set: Given an integer array nums, return true if any value appears at least twice in the array,
     and return false if every element is distinct.
-     */
-    public static boolean containsDuplicate(int[] nums) {
-        // Create a hashmap to count how many times the number appears
+
+    So for my first solution, I overdid it since I am not quite comfortable with HashMaps, Sets etc...
+    However, after looking at others solution I can see I overdid it and there is a simpler way to do it
+
+    Solution: We instantiate a Set to get no duplicate values
+    Then we iterate through the array
+    while we iterate we check if the hashset already contains that number, if it does, then we can end the loop and return true
+    if it does not, it adds the number to the hashset.
+    Since the first number always will be false, the first process will be skipped
+
+    First solution:
+            // Create a hashmap to count how many times the number appears
         Map<Integer, Integer> numCount = new HashMap<>();
 
         // We have to add the nums into the Hashmap
@@ -403,6 +412,17 @@ public class Easy {
         // We only have to check if one of them are true then we can stop
         for (int num : nums) {
             if (numCount.get(num) > 1) {
+                return true;
+            }
+        }
+        return false;
+
+     */
+    public static boolean containsDuplicate(int[] nums) {
+
+        Set <Integer> numCount = new HashSet<>();
+        for(int i : nums) {
+            if(!numCount.add(i)) {
                 return true;
             }
         }
