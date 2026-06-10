@@ -378,4 +378,36 @@ public class Easy {
         }
         return newNums;
     }
-}
+
+    /*
+    Problem set: Given an integer array nums, return true if any value appears at least twice in the array,
+    and return false if every element is distinct.
+     */
+    public static boolean containsDuplicate(int[] nums) {
+        // Create a hashmap to count how many times the number appears
+        Map<Integer, Integer> numCount = new HashMap<>();
+
+        // We have to add the nums into the Hashmap
+        for(int i : nums) {
+            numCount.put(i, 0);
+        }
+
+        // Check the map, if the number in the key is same as the array index, if yes count 1
+        for (int num : nums) {
+            if (numCount.containsKey(num)) {
+                numCount.put(num, numCount.get(num) + 1);
+            }
+        }
+
+        // Now we check whether the value in the hashmap has more than one, if yes return true else return false
+        // We only have to check if one of them are true then we can stop
+        for (int num : nums) {
+            if (numCount.get(num) > 1) {
+                return true;
+            }
+        }
+        return false;
+
+    }
+
+    }
