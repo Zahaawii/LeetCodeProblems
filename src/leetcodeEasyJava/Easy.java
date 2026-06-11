@@ -390,7 +390,7 @@ public class Easy {
     Then we iterate through the array
     while we iterate we check if the hashset already contains that number, if it does, then we can end the loop and return true
     if it does not, it adds the number to the hashset.
-    Since the first number always will be false, the first process will be skipped
+    Since the first number always will be true, the first process will be skipped
 
     First solution:
             // Create a hashmap to count how many times the number appears
@@ -428,6 +428,74 @@ public class Easy {
         }
         return false;
 
+    }
+
+    // Not done TODO
+    public static int missingNumber(int[] nums) {
+        int l = nums.length;
+        int newNum = 0;
+        Arrays.sort(nums);
+
+        for(int i = 0; i < l; i++) {
+            if(nums[i] != i) {
+                newNum = i;
+            }
+        }
+        return newNum;
+    }
+
+        /*
+        Problem set: 1512. Number of Good pairs
+        Given an array of integers nums, return the number of good pairs.
+        A pair (i, j) is called good if nums[i] == nums[j] and i < j.
+
+        Solution:
+        Since a pair is nums[i] == nums[j] and i < j we are going to brute force the way
+        Nested iteration to check for if number i is equal to number j
+        and if the outer for loop is less than the inner for loop
+        If yes, then increment the count
+         */
+
+    public static int numIdenticalPairs(int[] nums) {
+        int count = 0;
+        int l = nums.length;
+
+        for(int i = 0; i < l; i++) {
+            for(int j = 1; j < l; j++) {
+                if(nums[i] == nums[j] && i < j) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    // First solution without looking at answers, its ovver complicating it with 2 loops
+    // Saw the solution from someone, and its kind of similar to mine just without another loop
+    public static int[] getConcatenation(int[] nums) {
+        int [] ans = new int [nums.length * 2];
+        int count = 0;
+
+        for(int i = 0; i < nums.length; i++) {
+            ans[i] = nums[i];
+        }
+        for(int i = ans.length / 2; i < ans.length; i++) {
+            ans[i] = nums[count++];
+        }
+
+        return ans;
+    }
+
+    // Second solution, where I saw someone else answer
+    public int[] getConcatenationTwo(int[] nums) {
+        int l = nums.length;
+        int [] ans = new int [l * 2];
+
+        for(int i = 0; i < nums.length; i++) {
+            ans[i] = nums[i];
+            ans[i + l] = nums[i];
+        }
+        return ans;
     }
 
     }
